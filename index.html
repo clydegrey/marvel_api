@@ -1,0 +1,135 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Radioactive Blood</title>
+    <meta name="description" content="Marvel Comics Cover Image Generator">
+    <meta name="author" content="Clyde Grey">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" 
+    href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" 
+    href= "/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" 
+    href= "/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" 
+    href= "/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Oswald:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/tooltipster.core.css">
+    <link rel="stylesheet" href="css/tooltipster.bundle.css">
+    <link rel="stylesheet" href="css/themes/tooltipster-sideTip-noir.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- Add your site or application content here -->
+    <div class="wrapper">
+        <div class="hideIt">
+            <header>
+                <h1 id="top" class="animatedSlow flip">Marvel Comics</h1>
+                <div class="search">
+                    <form action="">
+                        <div class="yearBox animated infinate lightSpeedInRight">
+                            <input type="text" value="1961" class="year">
+                        </div>
+                        <div class="thorBox">
+                            <img src="img/lightning.png" class="lightening visuallyhidden">
+                            <img src="img/thor.png" data-tooltip-content="#spiderman_content" class="thor tooltip_Spiderman">
+                            <img src="img/thor.png" data-tooltip-content="#hulk_content" class="thor2 tooltip_hulk" title="Use the dials to select the year and month!">
+                            <img src="img/thor.png" data-tooltip-content="#thor_content" class="thor2 tooltip_thor" title="My friends the Hulk and Spider-man will help you">
+                        </div>
+                        <div class="monthBox animated infinate lightSpeedIn">
+                            <input type="text" value="3" class="month">
+                            <span class="monthText">MARCH</span>
+                        </div>
+                        <div class="buttonSubmit animated fadeInDown">
+                            <input type="submit" value="GO GET MY COMICS!">
+                        </div>
+                    </form>
+                </div>
+                <!--close of search -->
+            </header>
+            <div class="instructions animated fadeInUpBig">
+                <p>Interactive gallery of comic book covers drawing on Marvel's database of over 35,000 issues. Dial in any year and month. Response from Marvel may take as long as 30 seconds. Have fun!</p>
+            </div>
+            <div class="tooltip_templates">
+                <span id="hulk_content">
+       Use the dial around the Hulk!<br>Spin it to choose a month.
+    </span>
+                <span id="spiderman_content">
+       Spider-man's dial will change the year,<br>Spin it to the year you want!
+    </span>
+                <span id="thor_content">
+       My friends Spider-man and<br> the Hulk will help you,<br>try them out!
+    </span>
+            </div>
+        </div>
+        <!-- end of hideIt -->
+        <div class="screenBox">
+            <main>
+                <div class="container" id="artwork">
+                </div>
+            </main>
+        </div>
+        <footer>
+            <a href="http://clyde.codes" download>Clyde makes cool stuff.</a>
+            <p>&copy;2016 Clyde Grey</p>
+        </footer>
+        <section class="scroll pageControls animated infinate bounceInRight"><span><a href="#top">back to the top!</a></span><img src="img/scroll.gif" class="scroll__scrollImage visuallyhidden" alt=""> <img src="img/scroll-still.gif" class="scroll__stillImage" alt=""></section>
+        <section class="grab pageControls animated infinate bounceInLeft"><img src="img/doom.gif" alt=""><span><a href="#">Snapshot image and reset!</a></span></section>
+        <span id="bottomAnchor" class="visuallyhidden"></span>
+    </div>
+    <!-- end of wrapper -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
+    </script>
+    <script src="js/jquery.knob.js"></script>
+    <script src="js/tooltipster.core.min.js"></script>
+    <script src="js/tooltipster.bundle.min.js"></script>
+    <script src="js/html2canvas.js"></script>
+    <script src="js/main.js"></script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+    (function(b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function() {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = 'https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X', 'auto');
+    ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
