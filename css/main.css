@@ -214,12 +214,15 @@ form input[type="submit"] .buttonSubmit {
 
 .yearBox {
   display: inline-block;
-  font-family: "Bangers", cursive !important;
+  text-align: center;
   margin: 0 5%;
 }
 
 .yearBox input {
   letter-spacing: 2px !important;
+  text-align: center;
+  margin-right: 140px !important;
+  transform: translate(-6%, 6%);
 }
 
 .monthBox {
