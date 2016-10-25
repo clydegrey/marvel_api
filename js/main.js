@@ -64,9 +64,12 @@ marvel.getData = function(year, month) {
             $('#artwork').append($cover);
         });
         $('main').fadeTo(1000, 1);
-        $('html, body').animate({
-            scrollTop: $("#bottomAnchor").offset().top
-        }, 1000);
+
+        setTimeout(function() {
+            $('html, body').animate({
+            scrollTop: $(document).height()-$(window).height()
+        }, 600);  
+        }, 400);
         $('.thor').attr("src", "img/thor.png");
         $('.lightening').addClass('visuallyhidden');
         $('.tooltip').tooltipster({
@@ -119,6 +122,8 @@ marvel.formatMonth = function(month) {
     return (month < 10) ? '0' + month.toString() : month.toString();
 }
 
+marvel.imageCounter = 0;
+
 marvel.makeBackground = function(event) {
 
     let $container = $('.container'),
@@ -136,13 +141,11 @@ marvel.makeBackground = function(event) {
         background: "#0E202B",
         onrendered: function(canvas) {
             var imageData = canvas.toDataURL();
-            // location.assign(imgData);
-
-            var link = $('<a>').attr('href', imageData).attr('download', 'your image').html(`<img width="200" src="${imageData}"/>`);
-            // $("#photo img").remove();
-            // $('#photo').append(link);
-            $('footer').append(link);
-
+            marvel.imageCounter ++;
+            imageData = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+            var link = $('<a class="hey">').attr('href', imageData).attr('download', `awesome_pic_number ${marvel.imageCounter}`).html(`<img  src="${imageData}"/>`);
+            $('.instructions').append(link);
+            $('.instructions__gallery').show();
             $container.removeClass('makeReadyForCanvas');
             $pageControls.removeClass('visuallyhidden');
             $hideIt.show();
@@ -198,11 +201,9 @@ marvel.init = function() {
         animation: 'grow'
     });
 
-
-
-    $grab.on('click', function(e) {
-        e.preventDefault();
-        marvel.makeBackground(event);
+    $grab.on('click', function(e) {        
+         e.preventDefault();
+         marvel.makeBackground();
     });
 
     $form.mousemove(function() {
@@ -247,7 +248,6 @@ marvel.init = function() {
         }
     });
 
-   
         $('a[href*="#"]:not([href="#"])').click(function() {
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
                 var target = $(this.hash);
@@ -261,18 +261,17 @@ marvel.init = function() {
             }
         });
     
-
 $(window).scroll(function() {
 	var isMobile = window.matchMedia("only screen and (max-width: 760px)");
 	if (isMobile.matches) {
       var scrollAmt = 750;
     }else{
-       var scrollAmt = 160;
+       var scrollAmt = 180;
     }
     if ($(this).scrollTop() > scrollAmt) {
-        $('.pageControls').fadeIn();
+        $('.scroll').fadeIn();
     } else if ($(this).scrollTop() < scrollAmt) {
-        $('.pageControls').fadeOut();
+        $('.scroll').fadeOut();
     }
     if ($(this).scrollTop() > 40) {
         $('footer').fadeOut();
@@ -286,7 +285,16 @@ $(window).scroll(function() {
     }, 0));
     $('.scroll__scrollImage').removeClass("visuallyhidden");
     $('.scroll__stillImage').addClass("visuallyhidden");
-});
+
+
+     if($(window).scrollTop() + $(window).height() == $(document).height() && $(window).scrollTop() > 600){
+        $('.grab').fadeIn();
+     }else{
+        $('.grab').fadeOut();
+     }
+  });
+
+
 
 };
 
