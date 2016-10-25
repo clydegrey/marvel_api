@@ -11,6 +11,8 @@ marvel.getData = function(year, month) {
     var d = new Date();
     var currentYear = d.getFullYear();
     var currentMonth = d.getMonth();
+    var thunder = document.getElementById("soundEffect");
+
     
     if (endYear !== currentYear) {
         if ((endMonth >= 6)) {
@@ -72,6 +74,8 @@ marvel.getData = function(year, month) {
         }, 400);
         $('.thor').attr("src", "img/thor.png");
         $('.lightening').addClass('visuallyhidden');
+        $('#thunder').animate({volume: 0}, 1500);
+        
         $('.tooltip').tooltipster({
             theme: 'tooltipster-noir',
         });
@@ -131,10 +135,13 @@ marvel.makeBackground = function(event) {
         $hideIt = $('.hideIt'),
         $footer = $('footer'),
         $artwork = $('#artwork');
+        var camera = document.getElementById("camera");
     $container.addClass('makeReadyForCanvas');
     $pageControls.addClass('visuallyhidden');
     $hideIt.hide();
     $footer.hide();
+    camera.play();
+
     $('html,body').animate({ scrollTop: 0 }, 0);
     var img = html2canvas($('body'), {
         useCORS: true,
@@ -169,6 +176,8 @@ marvel.init = function() {
         $tooltip_thor = $('.tooltip_thor'),
         $grab = $('.grab'),
         $pageControls = $('.pageControls');
+        var thunder = document.getElementById("thunder");
+
 
     $form.on('submit', function(e) {
         e.preventDefault();
@@ -178,6 +187,11 @@ marvel.init = function() {
         marvel.getData(year, month);
         $thor.attr("src", "img/thor.gif");
         $lightening.removeClass('visuallyhidden');
+        
+         thunder.volume = 1;
+         thunder.currentTime = 0;
+         thunder.play();
+
     });
 
     $yearBox.on('mouseenter mouseleave', function(e) {
