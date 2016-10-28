@@ -1,5 +1,7 @@
 var marvel = {};
 
+var newest =0;
+
 marvel.publicKey = '1f4b53f2904d8cd948ee0b22f11a0e79';
 marvel.urlEnd = 'http://gateway.marvel.com:80/v1/public/comics';
 marvel.urlEndChar = 'http://gateway.marvel.com:80/v1/public/characters';
@@ -154,7 +156,7 @@ marvel.makeBackground = function(event) {
             var imageData = canvas.toDataURL();
             marvel.imageCounter ++;
             imageData = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-            var link = $('<a class="hey">').attr('href', imageData).attr('download', `awesome_pic_number ${marvel.imageCounter}.jpg`).html(`<img  src="${imageData}"/>`);
+            var link = $('<a class="hey">').attr('href', imageData).attr('download', `awesome_pic_number ${marvel.imageCounter}`).html(`<img  src="${imageData}"/>`);
             $('.instructions').append(link);
             $('.instructions__gallery').show();
             $container.removeClass('makeReadyForCanvas');
